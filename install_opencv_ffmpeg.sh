@@ -1,5 +1,5 @@
 dirone="/usr/local/src"
-mkdir ffmpeg
+mkdir $dirone/ffmpeg
 wget -P $dirone/ffmpeg gitdl.cn/https://github.com/FFmpeg/FFmpeg/archive/refs/heads/release/4.4.zip
 cd $dirone/ffmpeg
 mkdir $dirone/ffmpeg/build
