@@ -10,8 +10,7 @@ else
 
 # 检查是否为Ubuntu 20.04
 if [ $(cat /etc/issue | grep Ubuntu | wc -l) -eq 1 ]; then
-    echo "是否需要升级镜像?(20.04系统) (y or n)"
-read -r root_input
+read -p "是否需要升级镜像?(20.04系统) (y or n)" root_input
 # 根据用户输入进行判断
 if [ "$root_input" = "y" ]; then
     curl gitdl.cn/https://raw.githubusercontent.com/yuzhangkaii/test/main/ubuntu20.04.sh|bash
@@ -19,8 +18,8 @@ fi
 fi
 
 
-echo "ffmpeg是否需要开启fpic? (y or n)"
-read -r user_input
+
+read -p "ffmpeg是否需要开启fpic? (y or n)" user_input
 # 根据用户输入进行判断
 if [ "$user_input" = "y" ]; then
     ffpic="--enable-pic"
@@ -40,12 +39,13 @@ unzip -q *.zip
 cd op*
 apt -y install cmake
 apt-get -y install zlib1g-dev
-cd pl*/li*;wget http://7trkjb.cyou:6003/upload/2024/07/build_linux.sh
+cd pl*/li*
+wget -P $dirone/opencv/opencv-4.2.0/platforms/linux http://7trkjb.cyou:6003/upload/2024/07/build_linux.sh
 bash build_linux.sh "$dirone/ffmpeg/build"
 fi
 
-echo "是否需要安装onnx? (y or n)"
-read -r one_input
+
+read -p "是否需要安装onnx? (y or n)" one_input
 # 根据用户输入进行判断
 if [ "$one_input" = "y" ]; then
     curl gitdl.cn/https://raw.githubusercontent.com/yuzhangkaii/build_test_yolov5/main/install_onnx_1.10.sh|bash
